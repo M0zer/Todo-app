@@ -66,3 +66,88 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+/* Todo List container */
+#todo-list {
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  max-width: 400px;
+  margin: 32px auto;
+  padding: 16px 0;
+  list-style-type: none;
+}
+
+/* Egy Todo elem kinézete */
+#todo-list li {
+  padding: 12px 18px;
+  margin-bottom: 10px;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  transition: box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-left: 4px solid #60a5fa;
+}
+
+/* Checkbox és szöveg elrendezése */
+#todo-list label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Feladat szöveg stílusa */
+#todo-list p {
+  margin: 0 12px 0 0;
+  flex: 1;
+  font-size: 1.07rem;
+  color: #22223b;
+}
+
+/* Checkbox */
+#todo-list input[type="checkbox"] {
+  accent-color: #60a5fa;
+  width: 20px;
+  height: 20px;
+}
+
+#todo-list li:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  background: #f0f4fa;
+}
+/* Teljes oldal vagy szülő konténer középre igazítása */
+body,
+#root {
+  display: flex;
+  justify-content: center; /* vízszintes középre */
+  align-items: center; /* függőleges középre */
+  min-height: 100vh; /* az oldal teljes magassága */
+  margin: 0; /* alapértelmezett margó eltávolítása */
+  background-color: #010a17; /* opcionális: kellemes háttérszín */
+}
+.parent-container {
+  display: flex;
+  flex-direction: column; /* egymás alatti elrendezés */
+  align-items: center; /* opcionális, középre igazítás */
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  min-width: 300px;
+}
