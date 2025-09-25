@@ -1,10 +1,50 @@
-const TodoForm = ({ onClose }: { onClose: () => void }) => {
+import { useState, type ChangeEvent } from "react";
+import type { Task } from "../models/task";
+
+const TodoForm = ({
+  onClose,
+  addTask,
+}: {
+  onClose: () => void;
+  addTask: (arg0: Task) => void;
+}) => {
+  const [inputValue, setInputValue] = useState("");
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleAddTask = () => {
+    addTask({ text: inputValue, completed: false });
+    setInputValue("");
+  };
+
   return (
-    <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button onClick={onClose} style={{ marginTop: "10px" }}>
-          Bezárás
-        </button>
+    <div className="modal-backdrop">
+      <div className="modal-content">
+        <label htmlFor="todo-input" className="form-label">
+          Új feladat
+        </label>
+        <input
+          id="todo-input"
+          type="text"
+          className="form-input"
+          placeholder="Írd be a feladatot..."
+          autoFocus
+          value={inputValue}
+          onChange={handleChange}
+        />
+        <div className="form-actions">
+          <button type="submit" className="form-button" onClick={handleAddTask}>
+            Hozzáadás
+          </button>
+          <button
+            type="button"
+            className="form-button form-button--close"
+            onClick={onClose}
+          >
+            Bezárás
+          </button>
+        </div>
       </div>
     </div>
   );

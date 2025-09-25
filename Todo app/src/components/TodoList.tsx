@@ -23,6 +23,11 @@ const Todolist = () => {
     newTasks[index].completed = !newTasks[index].completed;
     setTasks(newTasks);
   };
+  const addTask = (item: Task) => {
+    const newTasks = [...tasks];
+    newTasks.push(item);
+    setTasks(newTasks);
+  };
 
   return (
     <div className="parent-container">
@@ -39,7 +44,9 @@ const Todolist = () => {
       </ul>
       <TodoCounter todo={notCompletedCount} done={completedCount} />
       <TodoButton setModalOpen={setModalOpen} />
-      {isModalOpen && <TodoForm onClose={() => setModalOpen(false)} />}
+      {isModalOpen && (
+        <TodoForm onClose={() => setModalOpen(false)} addTask={addTask} />
+      )}
     </div>
   );
 };
