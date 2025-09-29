@@ -52,6 +52,7 @@ const Todolist = () => {
 		const newTasks = [...tasks];
 		newTasks[index].text = newText;
 		newTasks[index].editable = !newTasks[index].editable;
+		console.log(newTasks[index].text, newTasks[index].editable);
 		setTasks(newTasks);
 	};
 

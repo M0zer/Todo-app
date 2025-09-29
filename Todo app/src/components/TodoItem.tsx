@@ -20,7 +20,7 @@ const TodoItem = ({
 
 	useEffect(() => {
 		setInputValue(task.text);
-	}, [task.text]);
+	}, [task.text, task.editable]);
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(event.target.value);
@@ -34,38 +34,29 @@ const TodoItem = ({
 		<>
 			<li>
 				<label>
-					{!task.editable && (
+					<pre style={{ color: 'black' }}>{task.editable + ''}</pre>
+					{!task.editable ? (
 						<>
 							<p>{inputValue}</p>
-
+							<button onClick={() => toggleEditable(index)}>
+								Szerkesztés
+							</button>
 							<button onClick={() => toggleCompleted(index)}>
 								{task.completed ? 'Kész' : 'Nincs Kész'}
 							</button>
 						</>
-					)}
-					{task.editable && (
+					) : (
 						<>
 							<input
 								id="todo-input"
 								type="text"
 								className="form-input"
-								autoFocus
 								value={inputValue}
 								onChange={handleChange}
 							/>
+							<button onClick={handleSave}>Done</button>
 						</>
 					)}
-					<button
-						onClick={() => {
-							if (task.editable) {
-								handleSave();
-							} else {
-								toggleEditable(index);
-							}
-						}}
-					>
-						{task.editable ? 'Kész' : 'Szerkesztés'}
-					</button>
 					<button onClick={() => deleteTask(index)}>Törlés</button>
 				</label>
 			</li>
