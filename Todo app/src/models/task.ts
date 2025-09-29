@@ -1,4 +1,6 @@
 export type Task = {
-  text: string;
-  completed: boolean;
+	id: string | number;
+	text: string;
+	completed: boolean;
+	editable?: boolean;
 };

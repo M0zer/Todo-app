@@ -7,10 +7,20 @@ import TodoForm from './TodoForm';
 
 const Todolist = () => {
 	const [tasks, setTasks] = useState<Task[]>([
-		{ text: 'első feladatom', completed: false },
-		{ text: 'másdik feladatom', completed: false },
-		{ text: 'harmadik feladatom', completed: false },
-		{ text: 'negyedik feladatom', completed: false },
+		{ id: 10, text: 'első feladatom', completed: false, editable: false },
+		{ id: 11, text: 'másdik feladatom', completed: false, editable: false },
+		{
+			id: 12,
+			text: 'harmadik feladatom',
+			completed: false,
+			editable: false,
+		},
+		{
+			id: 13,
+			text: 'negyedik feladatom',
+			completed: false,
+			editable: false,
+		},
 	]);
 
 	const [isModalOpen, setModalOpen] = useState(false);
@@ -23,6 +33,11 @@ const Todolist = () => {
 		newTasks[index].completed = !newTasks[index].completed;
 		setTasks(newTasks);
 	};
+	const toggleEditable = (index: number) => {
+		const newTasks = [...tasks];
+		newTasks[index].editable = !newTasks[index].editable;
+		setTasks(newTasks);
+	};
 	const addTask = (item: Task) => {
 		const newTasks = [...tasks];
 		newTasks.push(item);
@@ -33,6 +48,12 @@ const Todolist = () => {
 		newTasks.splice(index, 1);
 		setTasks(newTasks);
 	};
+	const updateTask = (index: number, newText: string) => {
+		const newTasks = [...tasks];
+		newTasks[index].text = newText;
+		newTasks[index].editable = !newTasks[index].editable;
+		setTasks(newTasks);
+	};
 
 	return (
 		<div className="parent-container">
@@ -40,11 +61,13 @@ const Todolist = () => {
 			<ul id="todo-list">
 				{tasks.map((item, index) => (
 					<TodoItem
-						key={index}
+						key={item.id}
 						index={index}
 						task={item}
 						toggleCompleted={toggleCompleted}
 						deleteTask={deleteTask}
+						updateTask={updateTask}
+						toggleEditable={toggleEditable}
 					/>
 				))}
 			</ul>

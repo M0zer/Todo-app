@@ -14,7 +14,13 @@ const TodoForm = ({
 	};
 
 	const handleAddTask = () => {
-		addTask({ text: inputValue, completed: false });
+		const uniqueId = crypto.randomUUID();
+		addTask({
+			id: uniqueId,
+			text: inputValue,
+			completed: false,
+			editable: false,
+		});
 		setInputValue('');
 	};
 
