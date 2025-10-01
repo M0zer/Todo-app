@@ -4,6 +4,7 @@ import TodoItem from './TodoItem';
 import TodoCounter from './TodoCounter';
 import TodoForm from './TodoForm';
 import { useTodoList } from './useTodoList';
+import { useEffect } from 'react';
 
 const Todolist = () => {
 	const {
@@ -18,6 +19,10 @@ const Todolist = () => {
 		deleteTask,
 		updateTask,
 	} = useTodoList();
+
+	useEffect(() => {
+		localStorage.setItem('tasks', JSON.stringify(tasks));
+	}, [tasks]);
 
 	return (
 		<div className="parent-container">
