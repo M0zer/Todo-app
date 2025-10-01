@@ -22,7 +22,10 @@ const Todolist = () => {
 
 	useEffect(() => {
 		localStorage.setItem('tasks', JSON.stringify(tasks));
-	}, [tasks]);
+		if (tasks.length === 0) {
+			setModalOpen(true);
+		}
+	}, [tasks, setModalOpen]);
 
 	return (
 		<div className="parent-container">

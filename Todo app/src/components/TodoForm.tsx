@@ -9,9 +9,11 @@ const TodoForm = ({
 	addTask: (addTask: Task) => void;
 }) => {
 	const [inputValue, setInputValue] = useState('');
+
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setInputValue(event.target.value);
 	};
+
 	useEffect(() => {
 		setInputValue('');
 	}, []);

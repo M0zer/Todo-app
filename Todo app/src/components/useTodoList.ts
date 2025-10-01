@@ -7,7 +7,7 @@ export const useTodoList = () => {
 		return saved ? JSON.parse(saved) : [];
 	});
 
-	const [isModalOpen, setModalOpen] = useState(false);
+	const [isModalOpen, setModalOpen] = useState(tasks.length === 0);
 
 	const completedCount = tasks.filter((task) => task.completed).length;
 
