@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent } from 'react';
+import { useEffect, useState, type ChangeEvent } from 'react';
 import type { Task } from '../models/task';
 
 const TodoForm = ({
@@ -12,6 +12,9 @@ const TodoForm = ({
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setInputValue(event.target.value);
 	};
+	useEffect(() => {
+		setInputValue('');
+	}, []);
 
 	const handleAddTask = () => {
 		const uniqueId = crypto.randomUUID();

@@ -29,12 +29,15 @@ const TodoItem = ({
 	const handleSave = () => {
 		updateTask(index, inputValue);
 	};
+	const handleCancel = () => {
+		setInputValue(task.text);
+		toggleEditable(index);
+	};
 
 	return (
 		<>
 			<li>
 				<label>
-					<pre style={{ color: 'black' }}>{task.editable + ''}</pre>
 					{!task.editable ? (
 						<>
 							<p>{inputValue}</p>
@@ -54,7 +57,8 @@ const TodoItem = ({
 								value={inputValue}
 								onChange={handleChange}
 							/>
-							<button onClick={handleSave}>Done</button>
+							<button onClick={handleSave}>Módosít</button>
+							<button onClick={handleCancel}>Mégse</button>
 						</>
 					)}
 					<button onClick={() => deleteTask(index)}>Törlés</button>

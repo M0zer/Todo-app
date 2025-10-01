@@ -1,202 +1,241 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+	color-scheme: light dark;
+	color: rgba(255, 255, 255, 0.87);
+	background-color: #242424;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+	font-weight: 500;
+	color: #646cff;
+	text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+	color: #535bf2;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+	margin: 0;
+	display: flex;
+	place-items: center;
+	min-width: 320px;
+	min-height: 100vh;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+	font-size: 3.2em;
+	line-height: 1.1;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+	border-radius: 8px;
+	border: 1px solid transparent;
+	padding: 0.6em 1.2em;
+	font-size: 1em;
+	font-weight: 500;
+	font-family: inherit;
+	background-color: #1a1a1a;
+	cursor: pointer;
+	transition: border-color 0.25s;
+	min-width: 74px;
+	margin-left: 6px;
+	margin-bottom: 0;
 }
 button:hover {
-  border-color: #646cff;
+	border-color: #646cff;
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+	outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+	:root {
+		color: #213547;
+		background-color: #ffffff;
+	}
+	a:hover {
+		color: #747bff;
+	}
+	button {
+		background-color: #f9f9f9;
+	}
 }
+
 /* Todo List container */
 #todo-list {
-  background: #f8f9fa;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-  max-width: 400px;
-  margin: 32px auto;
-  padding: 16px 0;
-  list-style-type: none;
+	background: #f8f9fa;
+	border-radius: 12px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+	max-width: 430px;
+	margin: 32px auto;
+	padding: 16px 0;
+	list-style-type: none;
 }
 
 /* Egy Todo elem kinézete */
 #todo-list li {
-  padding: 12px 18px;
-  margin-bottom: 10px;
-  background: #fff;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  transition: box-shadow 0.15s;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  border-left: 4px solid #60a5fa;
+	padding: 14px 20px;
+	margin-bottom: 12px;
+	background: #fff;
+	border-radius: 10px;
+	display: flex;
+	align-items: flex-start;
+	transition: box-shadow 0.15s;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+	border-left: 4px solid #60a5fa;
+	min-height: 56px;
 }
 
 /* Checkbox és szöveg elrendezése */
 #todo-list label {
-  display: flex;
-  align-items: center;
-  width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	width: 100%;
+	flex-wrap: wrap;
 }
 
 /* Feladat szöveg stílusa */
 #todo-list p {
-  margin: 0 12px 0 0;
-  flex: 1;
-  font-size: 1.07rem;
-  color: #22223b;
+	margin: 0 12px 0 0;
+	flex: 1 1 180px;
+	font-size: 1.07rem;
+	color: #22223b;
+	align-self: center;
 }
 
 /* Checkbox */
-#todo-list input[type="checkbox"] {
-  accent-color: #60a5fa;
-  width: 20px;
-  height: 20px;
+#todo-list input[type='checkbox'] {
+	accent-color: #60a5fa;
+	width: 20px;
+	height: 20px;
 }
 
 #todo-list li:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  background: #f0f4fa;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+	background: #f0f4fa;
 }
 /* Teljes oldal vagy szülő konténer középre igazítása */
 body,
 #root {
-  display: flex;
-  justify-content: center; /* vízszintes középre */
-  align-items: center; /* függőleges középre */
-  min-height: 100vh; /* az oldal teljes magassága */
-  margin: 0; /* alapértelmezett margó eltávolítása */
-  background-color: #010a17; /* opcionális: kellemes háttérszín */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	margin: 0;
+	background-color: #010a17;
 }
 .parent-container {
-  display: flex;
-  flex-direction: column; /* egymás alatti elrendezés */
-  align-items: center; /* opcionális, középre igazítás */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
+/* Szerkesztés input */
+#todo-list input.form-input {
+	flex: 1 1 180px;
+	min-width: 140px;
+	font-size: 1.07rem;
+	margin-bottom: 0;
+	align-self: center;
+	padding: 10px 12px;
+	border: 1px solid #cbcdd2;
+	border-radius: 6px;
+	box-sizing: border-box;
+	transition: border-color 0.2s;
+}
+#todo-list input.form-input:focus {
+	outline: none;
+	border-color: #60a5fa;
+}
+
+/* Modal stílusok */
 .modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
 }
 .modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  min-width: 300px;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+	min-width: 300px;
 }
 
 .form-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #1a1a2e;
+	display: block;
+	font-weight: 600;
+	margin-bottom: 8px;
+	color: #1a1a2e;
 }
 
 .form-input {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #cbcdd2;
-  border-radius: 6px;
-  font-size: 1rem;
-  margin-bottom: 16px;
-  box-sizing: border-box;
-  transition: border-color 0.2s;
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid #cbcdd2;
+	border-radius: 6px;
+	font-size: 1rem;
+	margin-bottom: 16px;
+	box-sizing: border-box;
+	transition: border-color 0.2s;
 }
 .form-input:focus {
-  outline: none;
-  border-color: #60a5fa;
+	outline: none;
+	border-color: #60a5fa;
 }
 
 .form-actions {
-  display: flex;
-  gap: 12px;
+	display: flex;
+	gap: 12px;
 }
 
 .form-button {
-  padding: 8px 20px;
-  border: none;
-  border-radius: 6px;
-  background-color: #60a5fa;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.15s;
+	padding: 8px 20px;
+	border: none;
+	border-radius: 6px;
+	background-color: #60a5fa;
+	color: #fff;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.15s;
 }
 .form-button:hover {
-  background-color: #2563eb;
+	background-color: #2563eb;
 }
 .form-button--close {
-  background-color: #f5f6fa;
-  color: #22223b;
-  border: 1px solid #cbcdd2;
+	background-color: #f5f6fa;
+	color: #22223b;
+	border: 1px solid #cbcdd2;
 }
 .form-button--close:hover {
-  background-color: #e1e7ef;
+	background-color: #e1e7ef;
+}
+
+/* Mobil felület optimalizálása */
+@media (max-width: 480px) {
+	#todo-list label {
+		flex-wrap: wrap;
+		gap: 6px;
+	}
+	#todo-list li {
+		min-height: 72px;
+	}
+	#todo-list input.form-input {
+		min-width: 100px;
+	}
 }
