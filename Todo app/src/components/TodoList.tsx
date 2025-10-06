@@ -5,8 +5,10 @@ import TodoCounter from './TodoCounter';
 import TodoForm from './TodoForm';
 import { useTodoList } from './useTodoList';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 const Todolist = () => {
+	const { userId = '' } = useParams<{ userId: string }>();
 	const {
 		tasks,
 		isModalOpen,
@@ -18,7 +20,7 @@ const Todolist = () => {
 		addTask,
 		deleteTask,
 		updateTask,
-	} = useTodoList();
+	} = useTodoList(userId);
 
 	useEffect(() => {
 		localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -29,7 +31,6 @@ const Todolist = () => {
 
 	return (
 		<div className="parent-container">
-			<h1>Todo list</h1>
 			<ul id="todo-list">
 				{tasks.map((item, index) => (
 					<TodoItem
