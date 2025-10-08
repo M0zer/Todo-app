@@ -9,15 +9,10 @@ import {
 	Navigate,
 } from 'react-router-dom';
 
-import type { User } from './models/user';
-import { useState } from 'react';
+import { useUserTabs } from './components/useUserTabs';
 
 const App = () => {
-	const [users, setUsers] = useState<User[]>([
-		{ id: 'anna', name: 'Anna', Tasks: [], editable: false },
-		{ id: 'bela', name: 'Béla', Tasks: [], editable: false },
-		{ id: 'mari', name: 'Mari', Tasks: [], editable: false },
-	]);
+	const { users } = useUserTabs();
 
 	return (
 		<Router>
@@ -28,7 +23,7 @@ const App = () => {
 						element={
 							<div className="parent-container">
 								<h1>Todo list</h1>
-								<UserTabs users={users} />
+								<UserTabs />
 								<TodoList />
 							</div>
 						}

@@ -238,13 +238,12 @@ body,
 		min-width: 100px;
 	}
 }
-
 .user-tabs {
 	display: flex;
-	flex-direction: row;
-	gap: 16px;
+	gap: 8px;
+	flex-wrap: wrap;
 	justify-content: center;
-	padding: 10px 20px;
+	padding: 10px;
 	background-color: #222;
 	border-radius: 8px;
 	margin: 20px 0;
@@ -268,7 +267,7 @@ body,
 }
 
 .user-tab-active {
-	background-color: #646cff; /* aktív szín */
+	background-color: #646cff;
 	color: #fff;
 	font-weight: 600;
 	border: 1px solid #646cff;
@@ -289,4 +288,71 @@ body,
 .user-tab.add-user:hover {
 	background-color: #646cff;
 	color: #fff;
+}
+
+.user-tab.edit-users {
+	background-color: #646cff;
+	color: #fff;
+}
+
+.user-tab.edit-users:hover {
+	background-color: #535bf2;
+}
+
+.user-tab-edit {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.user-tab-input {
+	width: 70px;
+	background: #1a1a1a;
+	color: #fff;
+	border: 1px solid #888;
+	padding: 2px 8px;
+	border-radius: 4px;
+	font-size: 0.9rem;
+}
+
+.user-tab-btn {
+	padding: 5px 10px;
+	margin-left: 4px;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+	font-weight: 700;
+	transition: background-color 0.3s;
+}
+
+.user-tab-btn.save {
+	background-color: #60a5fa;
+	color: #fff;
+}
+
+.user-tab-btn.save:hover {
+	background-color: #2563eb;
+}
+
+.user-tab-btn.cancel {
+	background-color: #1a1a1a;
+	color: #fff;
+	border: 1px solid #888;
+}
+
+.user-tab-btn.cancel:hover {
+	background-color: #444;
+}
+.user-tab-btn.delete {
+	background-color: #a83232;
+	color: #fff;
+	margin-left: 6px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	padding: 2px 6px;
+}
+
+.user-tab-btn.delete:hover {
+	background-color: #d93c3c;
 }
