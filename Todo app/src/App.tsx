@@ -10,12 +10,14 @@ import {
 } from 'react-router-dom';
 
 import { useUserTabs } from './components/useUserTabs';
+import SyncLocalStorage from './components/SyncLocalStorage';
 
 const App = () => {
 	const { users } = useUserTabs();
 
 	return (
 		<Router>
+			<SyncLocalStorage />
 			<TodoProvider>
 				<Routes>
 					<Route
